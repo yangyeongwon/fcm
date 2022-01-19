@@ -1,0 +1,31 @@
+server:
+  tomcat:
+    additional-tld-skip-patterns: "grpc-*.jar,google-*.jar,opencensus-*.jar,httpcore-*.jar,annotations-*.jar,gson-*.jar
+                                  ,j2objc-*.jar,checker-*.jar,listenablefuture-*.jar,auto-*.jar,proto-*.jar,jsr305-*.jar
+                                  ,perfmark-*.jar,protobuf-*.jar,protobuf-*.jar,conscrypt-*.jar,failureaccess-*.jar,animal-*.jar
+                                  ,error_*.jar,guava-*.jar"
+    uri-encoding: UTF-8
+    max-http-form-post-size: 200MB  # 210112_kmh max-http-post-size deprecated
+    max-swallow-size: 200MB
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+  web:    
+    resources:
+      static-locations: file:./src/main/webapp/WEB-INF/resources
+  datasource:
+    hikari:
+      primary: 
+         driver-class-name: "org.mariadb.jdbc.Driver"
+         jdbc-url: "jdbc:mariadb://tbizbooks.newzensolution.co.kr:3408/bizbooks?allowMultiQueries=true&characterEncoding=utf-8"
+         username: "newzen"
+         password: "!@#bizdbsbwps09##"
+         
+fcm:
+  path: "file:./src/main/webapp/WEB-INF/resources/static/json/fcmconfig/fcmconfig.json"
